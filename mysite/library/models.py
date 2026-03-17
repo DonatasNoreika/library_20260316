@@ -7,3 +7,10 @@ class Author(models.Model):
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 
+
+class Genre(models.Model):
+    name = models.CharField()
+
+    def __str__(self):
+        return self.name
+
