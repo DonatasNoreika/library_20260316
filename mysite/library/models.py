@@ -14,3 +14,13 @@ class Genre(models.Model):
     def __str__(self):
         return self.name
 
+
+class Book(models.Model):
+    title = models.CharField()
+    summary = models.TextField()
+    isbn = models.IntegerField()
+    author = models.ForeignKey(to="Author", on_delete=models.SET_NULL, null=True, blank=True)
+    genre = models.ManyToManyField(to="Genre")
+
+    def __str__(self):
+        return self.title
