@@ -11,7 +11,11 @@ class Author(models.Model):
 
 
 class Genre(models.Model):
-    name = models.CharField()
+    name = models.CharField(verbose_name="Pavadinimas")
+
+    class Meta:
+        verbose_name = "Žanras"
+        verbose_name_plural = "Žanrai"
 
     def __str__(self):
         return self.name
