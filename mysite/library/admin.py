@@ -3,7 +3,10 @@ from .models import Author, Genre, Book, BookInstance
 
 class BookInstanceInLine(admin.TabularInline):
     model = BookInstance
+    readonly_fields = ['uuid']
     extra = 0
+    can_delete = False
+    fields = ['uuid', 'due_back', 'status']
 
 class BookAdmin(admin.ModelAdmin):
     list_display = ['title', 'author', 'isbn', 'display_genre']
