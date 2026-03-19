@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Book, BookInstance, Author
 
+
 def index(request):
     my_context = {
         'num_books': Book.objects.count(),
@@ -10,3 +11,7 @@ def index(request):
     }
 
     return render(request, template_name="index.html", context=my_context)
+
+
+def about(request):
+    return render(request, template_name="about.html")

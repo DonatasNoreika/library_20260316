@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Mano svetainė</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}PRADŽIA{% endblock %}
+
+{% block content %}
 <h1>Šiuo metu mes turime:</h1>
 <ul>
     <li><b>Knygų: </b>{{ num_books }}</li>
@@ -12,5 +10,4 @@
     <li><b>Laisvų egzempliorių: </b>{{ num_instances_available }}</li>
     <li><b>Autorių: </b>{{ num_authors }}</li>
 </ul>
-</body>
-</html>
+{% endblock %}
