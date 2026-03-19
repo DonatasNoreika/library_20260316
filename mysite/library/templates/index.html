@@ -5,7 +5,12 @@
     <title>Mano svetainė</title>
 </head>
 <body>
-<h1>Rajono biblioteka</h1>
-<p>Čia bus Django demonstracinis puslapis, biblioteka.</p>
+<h1>Šiuo metu mes turime:</h1>
+<ul>
+    <li><b>Knygų: </b>{{ num_books }}</li>
+    <li><b>Egzempliorių: </b>{{ num_instances }}</li>
+    <li><b>Laisvų egzempliorių: </b>{{ num_instances_available }}</li>
+    <li><b>Autorių: </b>{{ num_authors }}</li>
+</ul>
 </body>
 </html>
