@@ -55,7 +55,7 @@ class Book(models.Model):
 
 class BookInstance(models.Model):
     uuid = models.UUIDField(default=uuid.uuid4)
-    book = models.ForeignKey(to="Book", on_delete=models.CASCADE)
+    book = models.ForeignKey(to="Book", on_delete=models.CASCADE, related_name="instances")
 
     LOAN_STATUS = (
         ('d', 'Administered'),

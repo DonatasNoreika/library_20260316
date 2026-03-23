@@ -5,6 +5,6 @@
 {% block content %}
 
 {% for book in books %}
-<p>{{ book.title }}</p>
+<p><a href="{{ book.pk }}">{{ book.title }}</a></p>
 {% endfor %}
 {% endblock %}
