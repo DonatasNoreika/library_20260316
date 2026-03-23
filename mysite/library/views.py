@@ -15,3 +15,10 @@ def index(request):
 
 def about(request):
     return render(request, template_name="about.html")
+
+
+def authors(request):
+    context = {
+        "authors": Author.objects.all(),
+    }
+    return render(request, template_name="authors.html", context=context)
