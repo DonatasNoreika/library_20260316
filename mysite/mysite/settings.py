@@ -25,6 +25,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-6qns%rrzv6(-@ov3rr8gmc&_otprkjc+1%vw68(gm7z=0@c7q0'
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'mano_pastas@gmail.com'
+# el. pašto adresas iš kurio siųsite
+EMAIL_HOST_PASSWORD = 'VerySecret'
+# slaptažodis
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -108,8 +117,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
 
-# LANGUAGE_CODE = 'en-us'
-LANGUAGE_CODE = 'lt'
+LANGUAGE_CODE = 'en-us'
+# LANGUAGE_CODE = 'lt'
 
 # TIME_ZONE = 'UTC'
 TIME_ZONE = 'Europe/Vilnius'
