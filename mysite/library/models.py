@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 import uuid
+from django.utils import timezone
 
 
 class Author(models.Model):
@@ -71,6 +72,9 @@ class BookInstance(models.Model):
     reader = models.ForeignKey(to=User,
                                on_delete=models.SET_NULL,
                                null=True, blank=True)
+
+    def is_overdue(self):
+        return self.due_back and self.due_back < timezone.now().date()
 
     def __str__(self):
         return str(self.uuid)
