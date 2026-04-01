@@ -8,7 +8,10 @@ from .models import Book, BookInstance, Author
 from django.views import generic
 from django.core.paginator import Paginator
 from django.db.models import Q
-from .forms import BookReviewForm, UserUpdateForm, ProfileUpdateForm
+from .forms import (BookReviewForm,
+                    UserUpdateForm,
+                    ProfileUpdateForm,
+                    BookInstanceCreateUpdateForm)
 
 def index(request):
     num_visits = request.session.get('num_visits', 1)
@@ -132,6 +135,7 @@ class BookInstanceListView(LoginRequiredMixin, UserPassesTestMixin, generic.List
     model = BookInstance
     template_name = "instances.html"
     context_object_name = 'instances'
+    ordering = ['-pk']
 
     def test_func(self):
         return self.request.user.is_staff
@@ -141,6 +145,17 @@ class BookInstanceDetailView(LoginRequiredMixin, UserPassesTestMixin, generic.De
     model = BookInstance
     template_name = "instance.html"
     context_object_name = "instance"
+
+    def test_func(self):
+        return self.request.user.is_staff
+
+
+class BookInstanceCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.CreateView):
+    model = BookInstance
+    template_name = "instance_form.html"
+    # fields = ['book', 'reader', 'due_back', 'status']
+    form_class = BookInstanceCreateUpdateForm
+    success_url = reverse_lazy('instances')
 
     def test_func(self):
         return self.request.user.is_staff
